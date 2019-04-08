@@ -1,9 +1,8 @@
 {
     "version": 2,
-    "build":[
+    "builds":[
         {"src":"index.js","use":"@now/node-server"}
     ],
-
     "routes":[
     {"src":"/.*", "dest":"index.js"}
     ]

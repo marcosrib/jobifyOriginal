@@ -1,6 +1,13 @@
 const express = require('express')
 const app = express()
  const port = process.env.PORT || 4000
+ app.use('/admin',(req,res,next) => {
+     if(req.hostname === 'localhost'){
+         next()
+     }else{
+         res.send('not allowed')
+     }
+ })
  const path = require('path')
 const sqlite = require('sqlite')
 const dbConnection = sqlite.open(path.resolve(__dirname,'banco.sqlite'), Promise)
